@@ -8,8 +8,8 @@ const Reviews = () => {
       id="testimonials"
     >
       <div className="relative isolate">
-        <div className="mb-20 space-y-4 px-6 md:px-0">
-          <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
+        <div className="mb-10 space-y-4 px-6 md:px-0">
+          <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-5xl">
             Reviews
           </h2>
         </div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { setLoginModal } from "../redux/reducers/userSlice";
 // import { useUser } from "../../contexts/UserContext";
 
 const linkClassName = `
@@ -16,8 +18,10 @@ const Navbar = () => {
   const [scrolledNav, setScrollednav] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [theme, setTheme] = useState("light");
+
+  const dispatch = useDispatch();
   // const { user, logout } = useUser();
-  const user = {};
+  const user = false;
   const toggleButtonRef = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -98,15 +102,17 @@ const Navbar = () => {
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <NavLink to="/" className="flex items-center">
-          {/* <img
-            // src="https://flowbite.com/docs/images/logo.svg"
-            src="/portfolio-backend.svg"
-            className="h-8 mr-3"
-            alt="Flowbite Logo"
-          /> */}
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <img
+            src="https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1696689325439-reclaim-low-resolution-logo-black-on-transparent-background.png"
+            className={`dark:invert h-10 mr-3`}
+            alt="ReClaim Logo"
+          />
+          {/* <span
+            style={{ fontFamily: "Kalam" }}
+            className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >
             ReClaim
-          </span>
+          </span> */}
         </NavLink>
 
         <div className="flex items-center md:order-2">
@@ -130,7 +136,7 @@ const Navbar = () => {
             <span className="sr-only">Open user menu</span>
             <img
               className="w-8 h-8 rounded-full"
-              src={user?.about?.avatar?.url}
+              src={'https://imgs.search.brave.com/UC52XQQ8PpdwaG3USbN-1BSgK1TCJX9HFoJ0gncJXMI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pY29u/LWxpYnJhcnkuY29t/L2ltYWdlcy9uby11/c2VyLWltYWdlLWlj/b24vbm8tdXNlci1p/bWFnZS1pY29uLTI1/LmpwZw'}
               alt="user photo"
             />
           </button>
@@ -162,61 +168,39 @@ const Navbar = () => {
               </div>
             )}
 
-            {user && (
-              <ul className="py-2" aria-labelledby="user-menu-button">
-                <li>
-                  <NavLink
-                    to="/"
-                    // className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    className={({ isActive }) =>
-                      isActive ? activeuserLinks : userLinks
-                    }
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/skills"
-                    className={({ isActive }) =>
-                      isActive ? activeuserLinks : userLinks
-                    }
-                  >
-                    Skills
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/projects"
-                    className={({ isActive }) =>
-                      isActive ? activeuserLinks : userLinks
-                    }
-                  >
-                    Pojects
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/timeline"
-                    className={({ isActive }) =>
-                      isActive ? activeuserLinks : userLinks
-                    }
-                  >
-                    timeline
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/youtube"
-                    className={({ isActive }) =>
-                      isActive ? activeuserLinks : userLinks
-                    }
-                  >
-                    Youtube
-                  </NavLink>
-                </li>
-              </ul>
-            )}
+            <ul className="py-2" aria-labelledby="user-menu-button">
+              <li>
+                <NavLink
+                  to="/"
+                  // className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  className={({ isActive }) =>
+                    isActive ? activeuserLinks : userLinks
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/found"
+                  className={({ isActive }) =>
+                    isActive ? activeuserLinks : userLinks
+                  }
+                >
+                  Found
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/lost"
+                  className={({ isActive }) =>
+                    isActive ? activeuserLinks : userLinks
+                  }
+                >
+                  Lost
+                </NavLink>
+              </li>
+            </ul>
 
             {user ? (
               <li onClick={handleLogout}>
@@ -225,8 +209,12 @@ const Navbar = () => {
                 </button>
               </li>
             ) : (
-              <li>
-                <button className="block w-full bg-gray-100  px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+              <li
+                onClick={() => {
+                  dispatch(setLoginModal(true));
+                }}
+              >
+                <button className="block w-full bg-gray-100  px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:bg-gray-800 dark:hover:text-white">
                   Login
                 </button>
               </li>
@@ -284,14 +272,15 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/skills"
+                to="/lost"
                 className={({ isActive }) =>
                   isActive ? activeClassName : linkClassName
                 }
               >
-                Skills
+                Lost
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 to="/projects"
@@ -299,9 +288,10 @@ const Navbar = () => {
                   isActive ? activeClassName : linkClassName
                 }
               >
-                Projects
+                Found
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 to="/timeline"
@@ -309,27 +299,7 @@ const Navbar = () => {
                   isActive ? activeClassName : linkClassName
                 }
               >
-                Timeline
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/youtube"
-                className={({ isActive }) =>
-                  isActive ? activeClassName : linkClassName
-                }
-              >
-                Youtube
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive ? activeClassName : linkClassName
-                }
-              >
-                About
+                Report
               </NavLink>
             </li>
           </ul>

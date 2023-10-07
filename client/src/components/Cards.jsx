@@ -4,14 +4,17 @@ const Cards = () => {
   return (
     <div id="blog ">
       <div className="max-w-screen-xl m-auto">
-        <div className="mb-12 space-y-2 text-center">
+        <div className=" space-y-2 text-center">
           <h2 className="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">
             Latest Articles
           </h2>
-          <p className="lg:mx-auto lg:w-6/12 text-gray-600 dark:text-gray-300">
-            Quam hic dolore cumque voluptate rerum beatae et quae, tempore sunt,
-            debitis dolorum officia aliquid explicabo? Excepturi, voluptate?
-          </p>
+
+          <div className="w-full py-5">
+            <SelectButton text={"All"} />
+            <SelectButton text={"CGC"} />
+            <SelectButton text={"CGC"} />
+            <SelectButton text={"CGC"} />
+          </div>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <SingleCard
@@ -35,7 +38,18 @@ const Cards = () => {
   );
 };
 
-const SingleCard = ({ image }) => {
+export const SelectButton = ({ text, action }) => {
+  return (
+    <button
+      type="button"
+      className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+    >
+      {text}
+    </button>
+  );
+};
+
+export const SingleCard = ({ image }) => {
   return (
     <div className="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
       <div className="relative overflow-hidden rounded-xl">

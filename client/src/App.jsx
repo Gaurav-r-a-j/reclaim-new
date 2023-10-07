@@ -12,11 +12,15 @@ import Error from "./pages/Error/Error";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Login from "./components/Login";
+import Lost from "./pages/Lost/Lost";
+import LostForm from "./pages/LostForm/LostForm";
 
 const Layout = () => {
   return (
     <div className=" relative dark:bg-slate-900 min-h-screen w-full text-red">
       {/* <CustomNotification /> */}
+      <Login/>
       <Navbar />
 
       <Outlet />
@@ -35,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/lost",
+        element: <Lost />,
+      },
+      {
+        path: "/lost-registration",
+        element: <LostForm />,
       },
     ],
   },

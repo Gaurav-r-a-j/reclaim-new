@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Cards from "../../components/Cards";
 import Reviews from "../../components/Reviews";
+import GetStarted from "../../components/GetStarted";
 
 const Home = () => {
   // return (
@@ -72,7 +73,7 @@ const Home = () => {
   return (
     <div className="  ">
       <div className="py-5 md:px-10 px-3 relative isolate ">
-        <div className="relative isolate" id="home">
+        <div className="relative isolate " id="home">
           <div
             aria-hidden="true"
             className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
@@ -81,14 +82,23 @@ const Home = () => {
             <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600" />
           </div>
           <div>
-            <div className="relative pt-36 ml-auto">
+            <div className="relative pt-36 ml-auto pb-28">
               <div className="lg:w-2/3 text-center mx-auto">
-                <h1 className="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
-                  Shaping a world with
+                <h1
+                  style={{ fontFamily: "Kalam" }}
+                  className="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-3"
+                >
+                  ReClaim
                   {/* <span className="text-primary dark:text-white">
-                    reimagination.
+                    Get your Lost Found !
                   </span> */}
                 </h1>
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Get your Lost Found !
+                  </span>
+                </button>
+
                 <p className="mt-8 text-gray-700 dark:text-gray-300">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
                   incidunt nam itaque sed eius modi error totam sit illum.
@@ -101,7 +111,7 @@ const Home = () => {
                     className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
                   >
                     <span className="relative text-base font-semibold text-white">
-                      Get started
+                      Found Item
                     </span>
                   </a>
                   <a
@@ -109,92 +119,30 @@ const Home = () => {
                     className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
                   >
                     <span className="relative text-base font-semibold text-primary dark:text-white">
-                      Learn more
+                      Lost Item
                     </span>
                   </a>
                 </div>
-                <div className="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
+                {/* <div className="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
                   <div className="text-left">
                     <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                      The lowest price
+                      The Best Place
                     </h6>
                     <p className="mt-2 text-gray-500">Some text here</p>
                   </div>
                   <div className="text-left">
                     <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                      The fastest on the market
+                      to find
                     </h6>
                     <p className="mt-2 text-gray-500">Some text here</p>
                   </div>
                   <div className="text-left">
                     <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                      The most loved
+                      your lost Item
                     </h6>
                     <p className="mt-2 text-gray-500">Some text here</p>
                   </div>
-                </div>
-              </div>
-              <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
-                <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/microsoft.svg"
-                    className="h-12 w-auto mx-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
-                <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/airbnb.svg"
-                    className="h-12 w-auto mx-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
-                <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/google.svg"
-                    className="h-9 w-auto m-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
-                <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/ge.svg"
-                    className="h-12 w-auto mx-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
-                <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/netflix.svg"
-                    className="h-8 w-auto m-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
-                <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img
-                    src="./images/clients/google-cloud.svg"
-                    className="h-12 w-auto mx-auto"
-                    loading="lazy"
-                    alt="client logo"
-                    width=""
-                    height=""
-                  />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -204,7 +152,7 @@ const Home = () => {
         </div>
 
         <Cards />
-
+        <GetStarted />
         <Reviews />
       </div>
     </div>
